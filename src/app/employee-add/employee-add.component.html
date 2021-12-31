@@ -1,0 +1,20 @@
+<form (submit)="onSubmit()">
+
+    <div align="center">
+        <div class="demo">
+            <label class="m-4">First Name : </label>
+            <input type="text" name="firstName" required pattern="[a-z A-Z]{1,20}" class="form-control" #firstName="ngModel" [class.is-invalid]="firstName.invalid" [(ngModel)]="employee.firstName">
+            <small class="text-danger" *ngIf="firstName.invalid">name is required</small>
+        </div>
+        <div class="demo">
+            <label class="m-4">Last Name :</label>
+            <input type="text" name="lastname" class="form-control" [(ngModel)]="employee.lastName">
+        </div>
+        <div class="demo">
+            <label class="m-4">Email :</label>
+            <input type="email" required name="email" #id="ngModel" class="form-control" [class.is-invalid]="id.invalid && id.touched" [(ngModel)]="employee.email">
+        </div>
+        <button class="btn btn-primary m-3">submit</button>
+    </div>
+
+</form>
